@@ -1,0 +1,45 @@
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+footer {
+  height: 8vh;
+  text-align: center;
+}
+header {
+  height: 8vh;
+  text-align: center;
+  background-color: grey;
+}
+
+footer {
+  background-color: grey;
+}
+
+.container {
+  display: flex;
+  height: 84vh;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-item-left {
+  flex: 0.5;
+}
+
+.flex-item-right {
+  width: 320px; /* Fixed width */
+  height: 320px; /* Fixed height */
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  --grid-size: calc(320px / var(--amount));
+}
+
+.grid-item {
+  box-sizing: border-box;
+  border: 1px solid black;
+  width: var(--grid-size);
+  height: var(--grid-size);
+}
