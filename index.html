@@ -11,7 +11,24 @@
     <script src="scripts.js" defer></script>
     <header><h1>Etch-a-Sketch</h1></header>
     <div class="container">
-      <div class="flex-item-left"></div>
+      <div class="flex-item-left">
+        <button>Colorpicker</button>
+        <button>MultiColor</button>
+        <button>Eraser</button>
+
+        <button>Clear</button>
+        <div id="gridInfo"><label for="gridSize" id="size">16 * 16</label></div>
+        <div class="slidecontainer">
+          <input
+            type="range"
+            min="1"
+            max="100"
+            value="50"
+            class="slider"
+            id="myRange"
+          />
+        </div>
+      </div>
       <div class="flex-item-right" id="oikea"></div>
     </div>
     <footer>LeeviP</footer>

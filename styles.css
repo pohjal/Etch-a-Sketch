@@ -25,12 +25,16 @@ footer {
 }
 
 .flex-item-left {
-  flex: 0.5;
+  margin-right: 150px;
+  display: flex;
+  flex-direction: column;
+  flex: 0.3;
+  justify-content: center;
 }
 
 .flex-item-right {
-  width: 320px; /* Fixed width */
-  height: 320px; /* Fixed height */
+  width: 480px; /* Fixed width */
+  height: 480px; /* Fixed height */
   display: flex;
   box-sizing: border-box;
   flex-wrap: wrap;
@@ -42,4 +46,57 @@ footer {
   border: 1px solid black;
   width: var(--grid-size);
   height: var(--grid-size);
+}
+
+.grid-item:hover {
+  background-color: bisque;
+}
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 3px; /* Specified height */
+
+  border-radius: 5px;
+  background: #010101; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  transition: opacity 0.2s;
+}
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #0b0b0b;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #0d0e0d;
+  cursor: pointer;
+}
+
+button {
+  padding: 15px;
+  margin: 30px;
+}
+#gridInfo {
+  text-align: center;
 }
