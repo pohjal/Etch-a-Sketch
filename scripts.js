@@ -6,14 +6,20 @@ const button = document.querySelector("#myRange");
 const gridInfo = document.querySelector("#size");
 const clear = document.querySelector("#clear");
 const eraser = document.querySelector("#eraser");
+const multiColor = document.querySelector("#randColor");
+const colorChosen = document.querySelector("#colorpicker");
 
+colorChosen.addEventListener("input", setNewColor);
+multiColor.addEventListener("click", randColorOnOff);
 eraser.addEventListener("click", eraserOnOff);
 clear.addEventListener("click", clearGrid);
 button.addEventListener("click", changeGrid);
 let amount = 16;
+let color = "black";
 
 let isMouseDown = false;
 let isEraserActive = false;
+let isRandomColorActive = false;
 
 const cont = document.getElementById("oikea");
 
@@ -25,12 +31,26 @@ document.addEventListener("mouseup", function () {
   isMouseDown = false;
 });
 
+function setNewColor() {
+  color = colorChosen.value;
+  console.log(color);
+}
+
 // Add mousedown and mouseup event listeners to the container
+function randColorOnOff() {
+  isRandomColorActive = !isRandomColorActive;
+  if (isRandomColorActive == false) {
+    multiColor.style.backgroundColor = "#e0e0e0";
+  }
+  if (isRandomColorActive == true) {
+    multiColor.style.backgroundColor = "gray";
+  }
+}
 
 function eraserOnOff() {
   isEraserActive = !isEraserActive;
   if (isEraserActive == false) eraser.style.backgroundColor = "#e0e0e0";
-  if (isEraserActive == true) eraser.style.backgroundColor = "grey";
+  if (isEraserActive == true) eraser.style.backgroundColor = "gray";
 }
 
 function clearGrid() {
@@ -49,9 +69,16 @@ function maker() {
 
     item.addEventListener("click", function () {
       // Change color on click
-      if (isEraserActive == false) item.style.backgroundColor = "black";
-      else {
-        item.style.backgroundColor = "white";
+      if (isRandomColorActive) {
+        if (isEraserActive == false) item.style.backgroundColor = randColor();
+        else {
+          item.style.backgroundColor = "white";
+        }
+      } else {
+        if (isEraserActive == false) item.style.backgroundColor = color;
+        else {
+          item.style.backgroundColor = "white";
+        }
       }
     });
 
@@ -62,9 +89,16 @@ function maker() {
     item.addEventListener("mouseover", function () {
       if (isMouseDown) {
         // Change color on mouseover while mouse button is pressed
-        if (isEraserActive == false) item.style.backgroundColor = "black";
+        if (isRandomColorActive)
+          if (isEraserActive == false) item.style.backgroundColor = randColor();
+          else {
+            item.style.backgroundColor = "white";
+          }
         else {
-          item.style.backgroundColor = "white";
+          if (isEraserActive == false) item.style.backgroundColor = color;
+          else {
+            item.style.backgroundColor = "white";
+          }
         }
       }
     });
@@ -73,8 +107,17 @@ function maker() {
 }
 
 function changeGrid() {
-  gridInfo.textContent = button.value + " * " + button.value;
+  gridInfo.textContent = button.value + " X " + button.value;
   console.log(button.value);
   amount = button.value;
   maker();
+}
+
+function randColor() {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 }

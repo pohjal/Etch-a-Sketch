@@ -97,7 +97,25 @@ button {
   padding: 15px;
   margin: 30px;
   background-color: #e0e0e0;
+  border-radius: 6%;
 }
 #gridInfo {
   text-align: center;
+}
+input[type="color"] {
+  -webkit-appearance: none;
+  width: 80px;
+  height: 80px;
+  border: none;
+  background: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
