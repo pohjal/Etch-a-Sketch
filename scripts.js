@@ -13,7 +13,7 @@ colorChosen.addEventListener("input", setNewColor);
 multiColor.addEventListener("click", randColorOnOff);
 eraser.addEventListener("click", eraserOnOff);
 clear.addEventListener("click", clearGrid);
-button.addEventListener("click", changeGrid);
+button.addEventListener("input", changeGrid);
 let amount = 16;
 let color = "black";
 
@@ -40,7 +40,7 @@ function setNewColor() {
 function randColorOnOff() {
   isRandomColorActive = !isRandomColorActive;
   if (isRandomColorActive == false) {
-    multiColor.style.backgroundColor = "#e0e0e0";
+    multiColor.style.backgroundColor = "#010101";
   }
   if (isRandomColorActive == true) {
     multiColor.style.backgroundColor = "gray";
@@ -49,7 +49,7 @@ function randColorOnOff() {
 
 function eraserOnOff() {
   isEraserActive = !isEraserActive;
-  if (isEraserActive == false) eraser.style.backgroundColor = "#e0e0e0";
+  if (isEraserActive == false) eraser.style.backgroundColor = "#010101";
   if (isEraserActive == true) eraser.style.backgroundColor = "gray";
 }
 
